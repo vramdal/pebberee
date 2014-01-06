@@ -68,8 +68,8 @@ static void window_load(Window *me) {
   action_bar_layer_add_to_window(action_bar, me);
   action_bar_layer_set_click_config_provider(action_bar, click_config_provider);
 
-  action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_plus);
-  action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_minus);
+  //action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_plus);
+  //action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_minus);
 
   Layer *layer = window_get_root_layer(me);
   const int16_t width = layer_get_frame(layer).size.w - ACTION_BAR_WIDTH - 3;
@@ -103,8 +103,8 @@ static void window_unload(Window *window) {
 }
 
 static void init(void) {
-  action_icon_plus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_PLUS);
-  action_icon_minus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_MINUS);
+  //action_icon_plus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_PLUS);
+  //action_icon_minus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_MINUS);
 
   window = window_create();
   window_set_window_handlers(window, (WindowHandlers) {
@@ -124,8 +124,8 @@ static void deinit(void) {
 
   window_destroy(window);
 
-  gbitmap_destroy(action_icon_plus);
-  gbitmap_destroy(action_icon_minus);
+  //gbitmap_destroy(action_icon_plus);
+  //gbitmap_destroy(action_icon_minus);
 }
 
 int main(void) {
