@@ -1,19 +1,3 @@
-/*
-* Copyright [yyyy] [name of copyright owner]
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
-
 #include "pebble.h"
 
 // This is a custom defined key for saving our count field
@@ -68,8 +52,8 @@ static void window_load(Window *me) {
   action_bar_layer_add_to_window(action_bar, me);
   action_bar_layer_set_click_config_provider(action_bar, click_config_provider);
 
-  //action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_plus);
-  //action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_minus);
+  action_bar_layer_set_icon(action_bar, BUTTON_ID_UP, action_icon_plus);
+  action_bar_layer_set_icon(action_bar, BUTTON_ID_DOWN, action_icon_minus);
 
   Layer *layer = window_get_root_layer(me);
   const int16_t width = layer_get_frame(layer).size.w - ACTION_BAR_WIDTH - 3;
@@ -103,8 +87,8 @@ static void window_unload(Window *window) {
 }
 
 static void init(void) {
-  //action_icon_plus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_PLUS);
-  //action_icon_minus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_MINUS);
+  action_icon_plus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_PLUS);
+  action_icon_minus = gbitmap_create_with_resource(RESOURCE_ID_IMAGE_ACTION_ICON_MINUS);
 
   window = window_create();
   window_set_window_handlers(window, (WindowHandlers) {
@@ -124,8 +108,8 @@ static void deinit(void) {
 
   window_destroy(window);
 
-  //gbitmap_destroy(action_icon_plus);
-  //gbitmap_destroy(action_icon_minus);
+  gbitmap_destroy(action_icon_plus);
+  gbitmap_destroy(action_icon_minus);
 }
 
 int main(void) {
